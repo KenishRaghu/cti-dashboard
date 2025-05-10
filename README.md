@@ -67,8 +67,6 @@ Create a `.env` file in the root of the project and add your OTX key:
 REACT_APP_OTX_API_KEY=your_otx_api_key_here
 ```
 
-> 🔐 **Note:** Never commit `.env` to version control!
-
 ### 4. Run the app
 
 ```bash
@@ -76,16 +74,6 @@ npm start
 ```
 
 The dashboard will open at `http://localhost:3000`.
-
----
-
-## 🖼️ Screenshots
-
-| Filters Panel | Charts + Table |
-|---------------|----------------|
-| ![filters](./screenshots/filters.png) | ![charts](./screenshots/charts.png) |
-
-> *(Optional)* Add real screenshots in a `/screenshots/` folder and replace above paths.
 
 ---
 
@@ -100,5 +88,4 @@ The dashboard will open at `http://localhost:3000`.
 
 ## 📝 License
 
-MIT License © 2025  
-Built with ❤️ by Kenish Raghu
+Built by Kenish Raghu
