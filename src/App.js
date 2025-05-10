@@ -3,8 +3,8 @@ import OTXFetcher from './components/OTXFetcher';
 
 function App() {
   return (
-    <div>
-      <h1>CTI Dashboard</h1>
+    <div className="container">
+      <h1>Cyber Threat Intelligence Dashboard</h1>
       <OTXFetcher />
     </div>
   );
