@@ -9,6 +9,7 @@ import Dashboard from './Dashboard';
 const OTXFetcher = () => {
   const [data, setData] = useState([]);
   const [filteredData, setFilteredData] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const [typeOptions, setTypeOptions] = useState([]);
   const [selectedTypes, setSelectedTypes] = useState([]);
@@ -51,6 +52,8 @@ const OTXFetcher = () => {
       setTypeOptions(options);
     } catch (err) {
       console.error('Error fetching OTX data:', err);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -78,10 +81,14 @@ const OTXFetcher = () => {
     setFilteredData(filtered);
   }, [selectedTypes, valueFilter, dateFilter, data]);
 
+  if (loading) {
+    return <div className="loading">Loading CTI data...</div>;
+  }
+
   return (
     <div>
       <div className="filter-panel">
-        <h2 style={{ marginBottom: '1rem' }}>Filter Threat Indicators</h2>
+        <h2 className="section-title">🎯 Filter Threat Indicators</h2>
 
         <div
           style={{
@@ -99,23 +106,23 @@ const OTXFetcher = () => {
               Filter by Type:
             </label>
             <Select
-  isMulti
-  options={typeOptions}
-  value={selectedTypes}
-  onChange={setSelectedTypes}
-  placeholder="Select types..."
-  menuPortalTarget={document.body}
-  styles={{
-    menuPortal: (base) => ({ ...base, zIndex: 9999 }),
-    control: (base) => ({
-      ...base,
-      borderRadius: '8px',
-      borderColor: '#ced4da',
-      minHeight: '38px',
-      fontSize: '0.95rem',
-    }),
-  }}
-/>
+              isMulti
+              options={typeOptions}
+              value={selectedTypes}
+              onChange={setSelectedTypes}
+              placeholder="Select types..."
+              menuPortalTarget={document.body}
+              styles={{
+                menuPortal: (base) => ({ ...base, zIndex: 9999 }),
+                control: (base) => ({
+                  ...base,
+                  borderRadius: '8px',
+                  borderColor: '#ced4da',
+                  minHeight: '38px',
+                  fontSize: '0.95rem',
+                }),
+              }}
+            />
           </div>
 
           {/* Value Filter */}
@@ -149,9 +156,6 @@ const OTXFetcher = () => {
               placeholderText="Select date"
               dateFormat="yyyy-MM-dd"
               className="custom-datepicker"
-              style={{
-                width: '100%',
-              }}
             />
           </div>
         </div>
