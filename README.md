@@ -1,70 +1,104 @@
-# Getting Started with Create React App
+# 🛡️ Cyber Threat Intelligence (CTI) Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The **CTI Dashboard** is a web-based threat intelligence visualization tool that fetches real-time data from the **AlienVault OTX** (Open Threat Exchange) API. It provides normalized, filterable, and interactive insights into threat indicators such as IPs, URLs, domains, and file hashes.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `npm start`
+- 🔎 **Filterable Indicators** – Filter by type, value, or creation date  
+- 📋 **Indicator Table** – View enriched threat data in a structured, scrollable table  
+- 📊 **Bar Chart** – Visualize distribution of indicator types  
+- 📈 **Line Chart** – Analyze indicator trends over time  
+- 🌐 **Responsive UI** – Optimized for desktop and wide screens  
+- ⚙️ **API Key Protection** – Uses environment variable for OTX key security  
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🧱 Tech Stack
 
-### `npm test`
+- **Frontend:** React.js  
+- **Charts:** Recharts  
+- **Date Picker:** react-datepicker  
+- **Dropdowns:** react-select  
+- **HTTP Client:** Axios  
+- **Styling:** Custom CSS with modern UI components  
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## 📦 Project Structure
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```
+.
+├── public/
+├── src/
+│   ├── components/
+│   │   ├── OTXFetcher.js       // Main logic for fetching, normalizing and filtering OTX data
+│   │   └── Dashboard.js        // Chart and table visualizations
+│   ├── App.js                  // Main app layout
+│   ├── index.js                // ReactDOM rendering
+│   └── index.css               // Global styles
+├── .env                        // Stores your OTX API key
+└── README.md
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## ⚙️ Getting Started
 
-### `npm run eject`
+### 1. Clone the repository
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+git clone https://github.com/your-username/cti-dashboard.git
+cd cti-dashboard
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 2. Install dependencies
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+```bash
+npm install
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Set up your API key
 
-## Learn More
+Create a `.env` file in the root of the project and add your OTX key:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```
+REACT_APP_OTX_API_KEY=your_otx_api_key_here
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+> 🔐 **Note:** Never commit `.env` to version control!
 
-### Code Splitting
+### 4. Run the app
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+```bash
+npm start
+```
 
-### Analyzing the Bundle Size
+The dashboard will open at `http://localhost:3000`.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## 🖼️ Screenshots
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+| Filters Panel | Charts + Table |
+|---------------|----------------|
+| ![filters](./screenshots/filters.png) | ![charts](./screenshots/charts.png) |
 
-### Advanced Configuration
+> *(Optional)* Add real screenshots in a `/screenshots/` folder and replace above paths.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 📌 TODO / Improvements
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- Add AbuseIPDB integration 🔍  
+- Export filtered data as CSV 📥  
+- Add dark mode toggle 🌙  
+- Paginate the table for better performance 🔄
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📝 License
+
+MIT License © 2025  
+Built with ❤️ by Kenish Raghu
